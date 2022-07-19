@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<title>Petite Vue</title>
+	<script defer init src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<script type="module">
+    import {createApp} from 'https://unpkg.com/petite-vue?module'
+
+    function User(props) {
+        return {
+            $template: "#user-template",
+            name: props.name,
+            message: props.message,
+            changeName(name) {
+                this.name = name
+            }
+        }
+    }
+
+    createApp({
+	    User
+    }).mount();
+</script>
+
+
+	<template id="user-template">
+		<div>
+			<h1>Hello {{ name }}</h1>
+			<p>{{ message }}</p>
+			<button @click="changeName('Antoine')">Change Name</button>
+		</div>
+	</template>
+
+	<div v-scope="User({ name: 'John', message: 'Hello' })"></div>
+	<div v-scope="User({ name: 'Jane', message: 'Hi' })"></div>
+	<div v-scope="User({ name: 'Bob', message: 'Hey' })"></div>
+
+</body>
+</html>
