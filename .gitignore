@@ -1,5 +1,6 @@
 # Google Apps Script Project
 .clasp.json
+src/appsscript.json
 
 #IDE
 .idea
